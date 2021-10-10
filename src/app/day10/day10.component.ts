@@ -9,13 +9,13 @@ export class Day10Component {
   @ViewChild(ToggleComponentD10, { static: true })
   toggleComp1: ToggleComponentD10;
   @ViewChild('toggleComp2', { static: true }) toggleComp2: ToggleComponentD10;
-  // @ViewChild('toggleBtn', { static: true })
-  // toggleBtn: ElementRef<HTMLButtonElement>;
+  @ViewChild('toggleBtn', { static: true })
+  toggleBtn: ElementRef<HTMLButtonElement>;
   btn1: boolean = true;
   btn2: boolean = true;
 
   ngOnInit() {
-    // console.log('ngOnInit', this.toggleComp1, this.toggleBtn);
+    console.log('ngOnInit', this.toggleComp1, this.toggleBtn);
   }
 
   ngAfterViewInit() {
