@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { ToggleComponentD10 } from './toggle.component';
 
 @Component({
@@ -11,16 +17,31 @@ export class Day10Component {
   @ViewChild('toggleComp2', { static: true }) toggleComp2: ToggleComponentD10;
   @ViewChild('toggleBtn', { static: true })
   toggleBtn: ElementRef<HTMLButtonElement>;
+  @ViewChild('inputFocus1', { static: true })
+  inputFocus1: ElementRef<HTMLInputElement>;
+  @ViewChild('inputFocus2', { static: true })
+  inputFocus2: ElementRef<HTMLInputElement>;
+  @ViewChildren(ToggleComponentD10) toggleComps: QueryList<ToggleComponentD10>;
   btn1: boolean = true;
   btn2: boolean = true;
+  btn3: boolean = true;
 
   ngOnInit() {
-    console.log('ngOnInit', this.toggleComp1, this.toggleBtn);
+    this.toggleComps.changes.subscribe(console.log);
+    setTimeout(() => {
+      // this.inputFocus1.nativeElement.focus();
+    }, 1000);
   }
 
   ngAfterViewInit() {
     setInterval(() => {
       this.toggleComp1.toggle();
-    }, 5000);
+    }, 3000);
+  }
+
+  handleChangeToogle1() {}
+
+  handleChangeToogle2() {
+    console.log('hello2');
   }
 }
