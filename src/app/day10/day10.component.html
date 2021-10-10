@@ -1,4 +1,9 @@
 <div>
   <h1>ViewChild/ViewChildren</h1>
   <toggle-d10 [(checked)]="btn1"></toggle-d10>
+  <button (click)="toggleComp1.toggle()">Button Toggle</button>
+  <br />
+  <br />
+  <toggle-d10 #toggleComp2 [(checked)]="btn2"></toggle-d10>
+  <button #toggleBtn (click)="toggleComp2.toggle()">Toggle Button 2</button>
 </div>
