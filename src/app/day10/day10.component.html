@@ -23,9 +23,10 @@
   <button #toggleBtn (click)="toggleComp2.toggle()">Toggle Button 2</button>
 </div>
 <div>
-  <toggle-d10 [(checked)]="btn3"></toggle-d10>
-  <toggle-d10 [(checked)]="btn3"></toggle-d10>
-  <toggle-d10 [(checked)]="btn3"></toggle-d10>
-  <toggle-d10 [(checked)]="btn3"></toggle-d10>
-  <toggle-d10 [(checked)]="btn3"></toggle-d10>
+  <ng-container *ngIf="!btn1">
+    <toggle-d10 #listTog [(checked)]="btn3"></toggle-d10
+  ></ng-container>
+  <toggle-d10 #listTog [(checked)]="btn3"></toggle-d10>
+  <toggle-d10 #listTog [(checked)]="btn3"></toggle-d10>
+  <toggle-d10 #listTog [(checked)]="btn3"></toggle-d10>
 </div>

@@ -5,6 +5,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { TimeInterval } from 'rxjs';
 import { ToggleComponentD10 } from './toggle.component';
 
 @Component({
@@ -21,27 +22,32 @@ export class Day10Component {
   inputFocus1: ElementRef<HTMLInputElement>;
   @ViewChild('inputFocus2', { static: true })
   inputFocus2: ElementRef<HTMLInputElement>;
-  @ViewChildren(ToggleComponentD10) toggleComps: QueryList<ToggleComponentD10>;
+
+  @ViewChildren('listTog ') toggleComps: QueryList<ToggleComponentD10>;
+  @ViewChildren(ToggleComponentD10) toggleList: QueryList<ToggleComponentD10>;
+
   btn1: boolean = true;
   btn2: boolean = true;
   btn3: boolean = true;
 
   ngOnInit() {
-    this.toggleComps.changes.subscribe(console.log);
+    // console.log(this.toggleComps);
     setTimeout(() => {
       // this.inputFocus1.nativeElement.focus();
     }, 1000);
   }
 
   ngAfterViewInit() {
-    setInterval(() => {
-      this.toggleComp1.toggle();
-    }, 3000);
+    this.toggleComps.changes.subscribe(console.log);
   }
 
-  handleChangeToogle1() {}
+  handleChangeToogle1() {
+    console.log(Math.random());
+  }
 
   handleChangeToogle2() {
-    console.log('hello2');
+    setTimeout(() => {
+      this.toggleComp1.toggle();
+    }, Math.random() * 10000);
   }
 }
